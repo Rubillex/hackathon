@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     npm \
+    sudo  \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl
 
@@ -40,9 +41,15 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath zip opcache
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 # Add user for laravel application
-RUN groupadd -g 1000 www
-RUN useradd -u 1000 -ms /bin/bash -g www www
+RUN sudo groupadd -g 1000 www
+RUN sudo useradd -u 1000 -ms /bin/bash -g www www
 
+
+RUN sudo chown -R www /bin/bash && \
+    sudo chown -R www /var/www -R
+
+
+COPY --chown=www:www . /var/www
 
 # Change current user to www
 USER www
