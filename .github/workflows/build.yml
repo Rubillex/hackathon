@@ -6,4 +6,6 @@ jobs:
     runs-on: self-hosted
     steps:
       - run: echo "${{ github.actor }} start deploy 🚀"
-
+      - run: composer install
+      - run: npm install
+      - run: npm run dev
