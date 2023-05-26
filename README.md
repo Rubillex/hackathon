@@ -8,6 +8,6 @@
 Внутри докер контейнера:
 
 1. `composer install`
-4. `php artisan key:generate`
-5. `php artisan migrate` или `php artisan migrate:fresh --seed`
-6. `php artisan storage:link`
+2. `php artisan key:generate`
+3. `php artisan migrate` или `php artisan migrate:fresh --seed`
+4. `php artisan storage:link`
