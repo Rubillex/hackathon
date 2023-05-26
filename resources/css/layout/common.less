@@ -1,0 +1,45 @@
+@import "../_var";
+
+:root {
+    .css-vars();
+}
+
+html {
+    height: 100%;
+    min-height: calc(100 * var(--vh));
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    min-height: calc(100 * var(--vh));
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family: @font;
+    width: calc(100% - var(--scroll-lock-compensation));
+}
+
+main {
+    flex-grow: 1;
+}
+
+.content-container {
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: var(--content-width);
+}
+
+@media @mediaDesktop {
+    .visible-mobile {
+        display: none !important;
+    }
+}
+
+@media @mediaMobile {
+    .hidden-mobile {
+        display: none !important;
+    }
+}

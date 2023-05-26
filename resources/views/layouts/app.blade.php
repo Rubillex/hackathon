@@ -1,3 +1,8 @@
+@php
+    $pageClass = $pageClass ?? 'main';
+    $pageType  = $pageType ?? $pageClass;
+@endphp
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -13,9 +18,9 @@
 
         <script src="{{ mix('js/app.js') }}" defer></script>
 
-        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+        <link href="{{ mix('css/style.css') }}" rel="stylesheet">
     </head>
-    <body class="antialiased">
+    <body class="{{ $pageClass }}-page page antialiased">
     <main id="app">
         @yield('content')
     </main>

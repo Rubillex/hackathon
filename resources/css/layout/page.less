@@ -1,0 +1,18 @@
+@import "../_var";
+
+.page {
+    &__wrapper {
+        position: relative;
+        display: flex;
+        flex-flow: column nowrap;
+        box-sizing: border-box;
+        min-height: calc(100 * var(--vh));
+        width: 100%;
+    }
+
+    &__content {
+        position: relative;
+        grid-column: 1;
+        grid-row: 1;
+    }
+}

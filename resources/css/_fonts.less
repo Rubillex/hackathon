@@ -1,0 +1,24 @@
+@import "_var";
+
+/****
+ * Подключение шрифтов
+ ****/
+
+.font(@fontName, @fontFileName, @weight: normal, @style: normal) {
+    @font-face {
+        font-family: @fontName;
+        src: url('@{fontPath}@{fontFileName}.woff2') format('woff2'),
+             url('@{fontPath}@{fontFileName}.woff') format('woff');
+        font-weight: @weight;
+        font-style: @style;
+        font-display: swap;
+    }
+}
+
+.font(@fontName, 'Inter-Regular', 400);
+.font(@fontName, 'Inter-SemiBold', 600);
+.font(@fontName, 'Inter-Bold', 700);
+
+.font(@fontNameRaleway, 'Raleway-Regular', 400);
+.font(@fontNameRaleway, 'Raleway-SemiBold', 600);
+.font(@fontNameRaleway, 'Raleway-Bold', 700);
