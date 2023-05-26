@@ -11,6 +11,6 @@ jobs:
 #          node-version: 16
 #      - run: cd /var/www/html/hackathon
 #      - run: node -v
-#      - run: npm install
-#      - run: npm run dev
+      - run: npm install
+      - run: npm run dev
 
