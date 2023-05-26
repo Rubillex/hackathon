@@ -32,13 +32,13 @@ class UserEditLayout extends Rows
                 ->title(__('Email'))
                 ->placeholder(__('Email')),
 
-            CheckBox::make('user.is_teacher')
-                ->sendTrueOrFalse()
+            Input::make('user.teacher_id')
+                ->disabled()
                 ->title('Учитель'),
 
-            CheckBox::make('user.is_student')
-                ->sendTrueOrFalse()
-                ->title(__('Студент')),
+            Input::make('user.student_id')
+                ->disabled()
+                ->title('Студент'),
         ];
     }
 }
