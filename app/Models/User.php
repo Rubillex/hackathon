@@ -16,8 +16,8 @@ class User extends OrchidUser
         'email',
         'password',
         'permissions',
-        'student_id',
-        'teacher_id',
+        'is_student',
+        'is_teacher',
     ];
 
     /**
