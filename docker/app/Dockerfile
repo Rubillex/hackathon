@@ -54,9 +54,10 @@ COPY --chown=www:www . /var/www
 # Change current user to www
 USER www
 
-#RUN composer install
-#
-#RUN npm install
+RUN composer install
+RUN php artisan key:generate
+
+RUN npm install
 
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
