@@ -1,0 +1,9 @@
+name: Builder
+run-name: deploy
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: self-hosted
+    steps:
+      - run: echo "${{ github.actor }} start deploy 🚀"
+
