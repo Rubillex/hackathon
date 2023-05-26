@@ -9,10 +9,10 @@ jobs:
         with:
           persist-credentials: false
       - run: composer install
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: cd /var/www/html/hackathon
-      - run: node -v
-      - run: npm install
-      - run: npm run dev
+#      - uses: actions/setup-node@v3
+#        with:
+#          node-version: 16
+#      - run: cd /var/www/html/hackathon
+#      - run: node -v
+#      - run: npm install
+#      - run: npm run dev
