@@ -14,8 +14,8 @@ class CreateColumnsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('is_teacher');
-            $table->boolean('is_student');
+            $table->boolean('is_teacher')->default(0);
+            $table->boolean('is_student')->default(1);
         });
     }
 
