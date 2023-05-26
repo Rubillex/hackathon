@@ -4,6 +4,7 @@ on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: self-hosted
+    if: github.ref == 'refs/heads/master'
     steps:
       - run: composer install
 #      - uses: actions/setup-node@v3
