@@ -1,0 +1,65 @@
+version: '1'
+services:
+    app:
+        build:
+            args:
+                user: cm_user
+                uid: 1000
+            context: ./
+            dockerfile: docker/app/Dockerfile
+        image: hackathon
+        container_name: hackathon-app
+        working_dir: /var/www/
+        volumes:
+            - .:/var/www
+            - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+        networks:
+            - hackathon
+        restart: always
+
+    mysql:
+        image: mysql:8.0.29
+        container_name: hackathon-mysql
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ROOT_HOST: '%'
+            MYSQL_DATABASE: '${DB_DATABASE}'
+            MYSQL_USER: '${DB_USERNAME}'
+            MYSQL_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        volumes:
+            - 'mysql:/var/lib/mysql'
+        networks:
+            - hackathon
+        restart: always
+
+    nginx:
+        image: nginx:alpine
+        container_name: hackathon-nginx
+        ports:
+            - "8000:80"
+            - "443:443"
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx:/etc/nginx/conf.d/
+            - ./certbot/www:/var/www/certbot/:ro
+        networks:
+            - hackathon
+        restart: always
+
+    certbot:
+        image: certbot/certbot:latest
+        container_name: hackathon-certbot
+        volumes:
+            - ./certbot/www/:/var/www/certbot/:rw
+
+networks:
+    hackathon:
+        driver: bridge
+volumes:
+    mysql:
+        driver: local
