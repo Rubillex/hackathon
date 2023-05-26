@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Orchid\Platform\Models\User as Authenticatable;
+use Orchid\Platform\Models\User as OrchidUser;
 
-class User extends Authenticatable
+class User extends OrchidUser
 {
     /**
      * The attributes that are mass assignable.
@@ -16,6 +16,8 @@ class User extends Authenticatable
         'email',
         'password',
         'permissions',
+        'is_student',
+        'is_teacher',
     ];
 
     /**
