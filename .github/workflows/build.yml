@@ -6,9 +6,12 @@ jobs:
     runs-on: self-hosted
     steps:
       - run: composer install
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
       - run: node -v
       - run: npm install
       - run: npm run dev
