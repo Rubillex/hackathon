@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Cources;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Cources\LessonStoreRequest;
+use App\Http\Requests\Cources\LessonRequest;
 use App\Models\Lesson;
 
 class LessonController extends Controller
@@ -27,23 +27,23 @@ class LessonController extends Controller
         return $lesson;
     }
 
-    public function store(LessonStoreRequest $request)
+    public function store(LessonRequest $request)
     {
         $lesson = Lesson::create($request->validated());
 
         return $lesson;
     }
 
-    public function update(LessonStoreRequest $request)
+    public function update(LessonRequest $request, Lesson $lesson)
     {
-        $lesson = Lesson::update($request->validated());
+        $lesson->update($request->validated());
 
         return $lesson;
     }
 
-    public function delete(int $id)
+    public function delete(Lesson $lesson)
     {
-        Lesson::findOrFail($id)->delete();
+        $lesson->delete();
 
         return true;
     }

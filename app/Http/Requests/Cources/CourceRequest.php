@@ -4,7 +4,7 @@ namespace App\Http\Requests\Cources;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CourceStoreRequest extends FormRequest
+class CourceRequest extends FormRequest
 {
     public function rules()
     {

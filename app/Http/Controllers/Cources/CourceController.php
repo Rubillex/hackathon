@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\Cources;
 
-use App\Http\Requests\Cources\CourceStoreRequest;
-use App\Http\Requests\Cources\LessonStoreRequest;
+use App\Http\Requests\Cources\CourceRequest;
 use App\Models\Cource;
-use App\Models\Lesson;
 
 class CourceController
 {
@@ -28,23 +26,23 @@ class CourceController
         return $cource;
     }
 
-    public function store(CourceStoreRequest $request)
+    public function store(CourceRequest $request)
     {
         $cource = Cource::create($request->validated());
 
         return $cource;
     }
 
-    public function update(CourceStoreRequest $request)
+    public function update(CourceRequest $request, Cource $cource)
     {
-        $cource = Cource::update($request->validated());
+        $cource->update($request->validated());
 
         return $cource;
     }
 
-    public function delete(int $id)
+    public function delete(Cource $cource)
     {
-        Cource::findOrFail($id)->delete();
+        $cource->delete();
 
         return true;
     }
