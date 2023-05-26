@@ -6,5 +6,8 @@ jobs:
     runs-on: self-hosted
     steps:
       - run: composer install
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - run: npm install
       - run: npm run dev
