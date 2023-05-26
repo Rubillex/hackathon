@@ -1,9 +1,6 @@
-version: '3.3'
+version: '1'
 services:
     app:
-        volumes:
-#            - .:/var/www
-            - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
         build:
             args:
                 user: cm_user
@@ -13,6 +10,9 @@ services:
         image: hackathon
         container_name: hackathon-app
         working_dir: /var/www/
+        volumes:
+            - .:/var/www
+            - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
         networks:
             - hackathon
         restart: always
