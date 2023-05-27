@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Cources;
 
-use App\Http\Requests\Courses\CourceRequest;
+use App\Http\Requests\Courses\CourseRequest;
 use App\Models\Course;
 use App\Models\CourseViewed;
 
@@ -10,46 +10,46 @@ class CourseController
 {
     public function index()
     {
-        $cources = Course::where('is_active', '=', 1)->get();
+        $courses = Course::where('is_active', '=', 1)->get();
 
-        return $cources;
+        return $courses;
     }
 
     public function show(string $slug)
     {
-        /** @var Course $cource */
-        $cource = Course::where('slug', '=', $slug)
+        /** @var Course $course */
+        $course = Course::where('slug', '=', $slug)
             ->where('is_active', '=', 1)->with('lessons')->first();
 
-        if (!$cource) {
+        if (!$course) {
             abort(404);
         }
 
         CourseViewed::updateOrCreate([
-            'course_id' => $cource->id,
+            'course_id' => $course->id,
             'user_id' => auth()->id()
         ]);
 
-        return $cource;
+        return $course;
     }
 
-    public function store(CourceRequest $request)
+    public function store(CourseRequest $request)
     {
-        $cource = Course::create($request->validated());
+        $course = Course::create($request->validated());
 
-        return $cource;
+        return $course;
     }
 
-    public function update(CourceRequest $request, Course $cource)
+    public function update(CourseRequest $request, Course $course)
     {
-        $cource->update($request->validated());
+        $course->update($request->validated());
 
-        return $cource;
+        return $course;
     }
 
-    public function delete(Course $cource)
+    public function delete(Course $course)
     {
-        $cource->delete();
+        $course->delete();
 
         return true;
     }
