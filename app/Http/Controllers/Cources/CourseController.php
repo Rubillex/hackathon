@@ -10,7 +10,7 @@ class CourseController
 {
     public function index()
     {
-        $courses = Course::where('is_active', '=', 1)->get();
+        $courses = Course::where('is_active', '=', 1)->with('lessons')->get();
 
         return view('courses.opened')
             ->with('courses', $courses);

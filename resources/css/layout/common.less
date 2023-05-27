@@ -29,10 +29,10 @@ body {
 main {
     flex-grow: 1;
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    max-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
 .content-container {
-    box-sizing: border-box;
     margin: 0 auto;
     width: var(--content-width);
 }
@@ -46,5 +46,44 @@ main {
 @media @mediaMobile {
     .hidden-mobile {
         display: none !important;
+    }
+}
+
+.scrollable {
+    max-height: calc(100vh - var(--header-height) - var(--footer-height));
+    overflow: scroll;
+}
+
+* {
+    scrollbar-color: @cLightGreen @cLightGray;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+        display: block;
+        width: 7px;
+        height: 7px;
+        max-height: 80%;
+        right: 10px;
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+        border-radius: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 20px;
+        background-color: @cLightGreen;
+    }
+
+    &::-webkit-scrollbar-track-piece:end {
+        background: transparent;
+        margin-bottom: 10px;
+    }
+
+    &::-webkit-scrollbar-track-piece:start {
+        background: transparent;
+        margin-top: 10px;
     }
 }

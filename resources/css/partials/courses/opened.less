@@ -1,0 +1,30 @@
+@import "../../_var";
+
+.courses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 50px;
+
+    &__container {
+        max-width: 950px;
+        margin: 0 auto;
+    }
+
+    &__desc {
+        padding-top: 40px;
+        font: 400 16px/20px @font;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        padding-top: 80px;
+        overflow-y: scroll;
+        height: 100%;
+        padding-bottom: 20px;
+    }
+}
