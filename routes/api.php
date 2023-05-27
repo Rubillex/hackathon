@@ -28,3 +28,8 @@ Route::prefix('/lk/')->name('lk.')->group(function () {
 });
 
 Route::post('/froggy-chat', [Con\API\ChatGPTController::class, 'sendMessage']);
+
+Route::prefix('/pet')->name('pet.')->group(function () {
+    // todo мидлвара на проверку авторизации, того что пет принадлежит юзеру
+    Route::get('/get-pet-by-user/{user}', [Con\Api\PetController::class, 'getUserPet'])->name('getUserPet');
+});
