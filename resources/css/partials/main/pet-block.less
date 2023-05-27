@@ -4,6 +4,7 @@
     height: 100%;
     background-color: @cToxicGreen;
     position: relative;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
 
     &:before {
         .pseudo();
@@ -13,11 +14,22 @@
     }
 
     &__wrapper {
-        padding: 42px 87px 72px 66px;
+        padding: 42px 87px 72px 0;
     }
 
     &__title {
         font: 900 32px/32px @fontRaleway;
         margin-bottom: 40px;
+    }
+
+    &__row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        margin: 0 40px;
     }
 }
