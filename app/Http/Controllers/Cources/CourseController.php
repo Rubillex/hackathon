@@ -12,7 +12,8 @@ class CourseController
     {
         $courses = Course::where('is_active', '=', 1)->get();
 
-        return $courses;
+        return view('courses.opened')
+            ->with('courses', $courses);
     }
 
     public function show(string $slug)
