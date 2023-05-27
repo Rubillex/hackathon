@@ -12,8 +12,6 @@ use Orchid\Platform\Models\User as OrchidUser;
  * @property string $email
  * @property string $password
  * @property string $permissions
- * @property boolean $is_student
- * @property boolean $is_teacher
  */
 class User extends OrchidUser
 {
@@ -28,8 +26,6 @@ class User extends OrchidUser
         'email',
         'password',
         'permissions',
-        'is_student',
-        'is_teacher',
     ];
 
     /**

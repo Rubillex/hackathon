@@ -49,10 +49,6 @@ class UserListLayout extends Table
                         ]);
                 }),
 
-            TD::make('is_teacher', 'Учитель'),
-
-            TD::make('is_student', 'Студент'),
-
             TD::make('updated_at', __('Last edit'))
                 ->sort()
                 ->render(function (User $user) {

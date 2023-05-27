@@ -12,8 +12,6 @@ class RegisterRequest extends FormRequest
             'email' => ['required', 'string', 'email', 'unique:users,email'],
             'name' => ['required', 'string'],
             'password' => ['required', 'string'],
-            'is_teacher' => ['required', 'boolean'],
-            'is_student' => ['required', 'boolean'],
         ];
     }
 }
