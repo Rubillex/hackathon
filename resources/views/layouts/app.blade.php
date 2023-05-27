@@ -21,18 +21,8 @@
     </head>
     <body class="{{ $pageClass }}-page page antialiased">
         <main id="app">
-            @include('partials.layout.header')
-
-
-            <div class="page__content-wrap">
-                <main class="page__content">
-                    @yield('content')
-                </main>
+            <div id="vue-app">
             </div>
-
-
-
-            @include('partials.layout.footer')
         </main>
     </body>
     <script src="{{ mix('js/app.js') }}"></script>

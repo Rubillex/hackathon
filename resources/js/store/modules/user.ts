@@ -3,6 +3,7 @@ import {defineStore} from 'pinia';
 
 type TState = {
     email: string | null,
+    token: string | null,
 }
 
 export default defineStore({
@@ -10,6 +11,7 @@ export default defineStore({
 
     state: (): TState => ({
         email: null,
+        token: null,
     }),
 
     getters: {
@@ -25,4 +27,5 @@ export default defineStore({
             }
         },
     },
+    persist: true,
 });
