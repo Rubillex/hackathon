@@ -22,7 +22,16 @@
     </head>
     <body class="{{ $pageClass }}-page page antialiased">
     <main id="app">
-        @yield('content')
+        @include('partials.layout.header')
+
+
+        <div class="page__content-wrap">
+            <main class="page__content">
+                @yield('content')
+            </main>
+        </div>
+
+        @include('partials.layout.footer')
     </main>
     </body>
 </html>
