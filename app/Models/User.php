@@ -96,6 +96,11 @@ class User extends OrchidUser
         return $this->hasOne(Pet::class, 'user_id');
     }
 
+    public function stepik(): HasOne
+    {
+        return $this->hasOne(Platform::class, 'user_id');
+    }
+
 
     public function myCourses(): BelongsToMany
     {

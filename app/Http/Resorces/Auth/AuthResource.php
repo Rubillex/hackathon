@@ -17,6 +17,7 @@ class AuthResource extends JsonResource
             'name' => $this->resource->name,
             'email' => $this->resource->email,
             'token' => $this->resource->createToken('spa')->plainTextToken,
+            'stepikID' => $this->resource?->stepik->external_id,
         ];
 	}
 }

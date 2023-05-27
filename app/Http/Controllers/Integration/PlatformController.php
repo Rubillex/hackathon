@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers\Integration;
 
+use App\Http\Requests\Platform\PlatformLoadUserRequest;
 use App\Models\Api\Stepik;
+use App\Models\Platform;
 use Illuminate\Http\Request;
 
 class PlatformController
 {
 
-    public function loadUserPlatformInfo(Request $request, Stepik $stepik)
+    public function loadUserPlatformInfo(PlatformLoadUserRequest $request, Stepik $stepik, Platform $platform)
     {
-        $id = $request->get('id');
+        $data = $request->validated();
+
+        $id = $data['id'];
+        $userID = $data['userID']; // todo получать с бэка это
 
         $success = true;
 
@@ -19,6 +24,25 @@ class PlatformController
         } catch (\Exception $e) {
             $success = false;
         }
+
+        if (!$success) {
+            return response()->json([
+                'success' => false,
+            ]);
+        }
+
+        $data = [
+            'user_id' => $userID,
+            'external_id' => $result->id,
+            'knowledge' => $result->knowledge ?? 0,
+            'reputation' => $result->reputation ?? 0,
+        ];
+
+
+        Platform::firstOrCreate([
+            'user_id' => $userID,
+            'external_id' => $result->id
+        ], $data);
 
         return response()->json([
             'success'    => $success,

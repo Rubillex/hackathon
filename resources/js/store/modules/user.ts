@@ -7,6 +7,7 @@ interface TState {
         id: number | null
         email: string | null,
         token: string | null,
+        stepikID: string | null,
     } | null
 }
 
