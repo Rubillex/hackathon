@@ -23,8 +23,6 @@ Route::prefix('/auth')->name('auth.')->group(function () {
     Route::post('/login', [Con\Auth\AuthController::class, 'login'])->name('login');
 });
 
-Route::prefix('/platform')->name('platform.')->group(function () {
-    Route::get('', [Con\Integration\PlatformController::class, 'loadUserPlatformInfo'])->name('loadUserPlatformInfo');
 Route::prefix('/platform/')->name('platform.')->group(function () {
     Route::get('load', [Con\Integration\PlatformController::class, 'loadUserPlatformInfo'])->name('loadUserPlatformInfo');
 });
