@@ -1,0 +1,33 @@
+@import "_var";
+//@import "../build/sprite";
+
+/****
+ * Внешние либы, ресеты
+ ****/
+@import "_fonts";
+@import (optional) "../build/symbols";
+
+/****
+ * Layout: стили шаблона. Эти стили используются в других блоках и должны быть загружены прежде всего
+ ****/
+
+@import "layout/include";
+
+
+/****
+ * Блоки
+ ****/
+
+@import "partials/include";
+
+/****
+ * Стили страниц
+ ****/
+@import "pages/include";
+
+
+// к не-сделанным блокам добавлять класс .todо, чтобы они визуально выделялись
+.todo {
+    border: 1px solid red;
+    font: 400 14px/14px @fontRaleway;
+}
