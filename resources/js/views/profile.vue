@@ -3,7 +3,7 @@
         <div class="content-container main-container__wrapper">
             <div class="pet-block">
                 <div class="pet-block__wrapper">
-                    <div class="pet-block__title">Приветствую, Фиона!</div>
+                    <div class="pet-block__title" v-html="`Приветствую, ${userData.name}!`" />
                     <div class="pet-block__row">
                         <div class="pet-block__pet-card">
                             <div class="pet-card">
@@ -37,17 +37,17 @@
                         </div>
                         <div class="pet-block__info">
                             <div class="pet-block__info-title">Жаба Клава говорит:</div>
-                            <br>
-                            <div class="pet-block__info-message">Я жрать блин хочу че ты меня не кормишь? Покорми старую, сынок... Я скоро совсем зачахну</div>
-                            <br>
-                            <div class="pet-block__info-date">27.05.2023</div>
-                            <br>
+                            <div class="pet-block__messenger">
+                                <message
+                                    v-for="message in messages"
+                                    :key="message.time"
+                                    :message="message"
+                                />
+                            </div>
                             <a href="/courses" class="pet-block__btn btn btn--red btn--border-black">
                                 <div class="menu__item-text btn__text">Накормить жабу</div>
                             </a>
-                            <br>
                             <div class="pet-block__info-title">Мои последние курсы:</div>
-                            <br>
                         </div>
                     </div>
                 </div>
@@ -72,8 +72,27 @@
 <script setup lang="ts">
 import ProgressBar from "../components/ProgressBar.vue";
 import { ref } from "vue";
+import user from "../store/modules/user";
+import Message from "../components/Message.vue";
 
 const lifePercent = ref(100);
+
+const store = user();
+
+const userData = store.getUserData;
+
+const messages = ref([
+    {
+        content: 'Я жрать блин хочу',
+        time: '11.12.2023',
+        incoming: true,
+    },
+    {
+        content: 'прасти :с',
+        time: '11.12.2023',
+        incoming: false,
+    },
+]);
 
 const decrementLife = () => {
     if (lifePercent.value <= 0) {

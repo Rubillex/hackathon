@@ -19,11 +19,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::prefix('/auth')->name('auth.')->group(function () {
+    Route::post('/login', [Con\Auth\AuthController::class, 'login'])->name('login');
+});
+
 Route::prefix('/platform')->name('platform.')->group(function () {
     Route::get('', [Con\Integration\PlatformController::class, 'loadUserPlatformInfo'])->name('loadUserPlatformInfo');
 });
 
-Route::prefix('/lk/')->name('lk.')->group(function () {
+Route::prefix('/lk/')->middleware(['auth:sanctum'])->name('lk.')->group(function () {
     Route::get('user', [Con\LK\LKController::class, 'index'])->name('index');
 });
 
