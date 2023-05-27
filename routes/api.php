@@ -24,7 +24,7 @@ Route::prefix('/auth')->name('auth.')->group(function () {
 });
 
 Route::prefix('/platform/')->name('platform.')->group(function () {
-    Route::get('load', [Con\Integration\PlatformController::class, 'loadUserPlatformInfo'])->name('loadUserPlatformInfo');
+    Route::post('load', [Con\Integration\PlatformController::class, 'loadUserPlatformInfo'])->name('loadUserPlatformInfo');
 });
 
 Route::prefix('/lk/')->middleware(['auth:sanctum'])->name('lk.')->group(function () {

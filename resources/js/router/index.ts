@@ -11,19 +11,19 @@ const router = createRouter({
             path: ROUTES.profile,
             name: 'profile',
             component: () => import('../views/profile.vue'),
-            beforeEnter: authMiddleware
+            // beforeEnter: authMiddleware
         },
         {
             path: ROUTES.courses,
             name: 'courses',
             component: () => import('../views/courses.vue'),
-            beforeEnter: authMiddleware
+            // beforeEnter: authMiddleware
         },
         {
             path: ROUTES.lk,
             name: 'lk',
             component: () => import('../views/lk.vue'),
-            beforeEnter: authMiddleware
+            // beforeEnter: authMiddleware
         },
     ]
 });
@@ -35,7 +35,7 @@ router.beforeEach(async (to, from, next) => {
 
         const store = user();
         const payload = {
-            email: 'test@test.test',
+            email: 'kirillmk_kmk@mail.ru',
             password: 'password'
         };
         await store.login(payload);

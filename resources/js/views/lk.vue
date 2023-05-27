@@ -9,7 +9,7 @@
                         <span>Введите id пользователя на stepik:</span>
                     </span>
 
-                    <input class="input">
+                    <input class="input" v-model="id">
                 </label>
             </div>
             <button class="btn btn--green" @click="send()">
@@ -24,7 +24,9 @@
         <div class="popup-modal-wrapper">
             <div class="popup-modal">
                 <div class="popup-modal__close" @click="togglePopup">x</div>
-                <div class="popup-modal__title">popup</div>
+                <div class="popup-modal__title">Аккаунт добавлен</div>
+                <div class="popup-modal__descr">Очков репутации: {{ reputation }}</div>
+                <div class="popup-modal__descr">Очков знаний: {{ knowledge }}</div>
             </div>
         </div>
     </CommonPopup>
@@ -32,24 +34,36 @@
 
 <script setup lang="ts">
 
-    import {postJson} from "~/helper/ajax";
+    import {postJson} from "../helper/ajax";
     import CommonPopup from "../vue/CommonPopup.vue";
     import {ref} from "vue";
+    import user from "../store/modules/user";
 
+    const store = user();
+
+    const userData = store.getUserData;
+
+    const reputation = ref(0);
+    const knowledge = ref(0);
     const popupVisible = ref(false);
+    const id = ref(''); // todo из стора, а если есть, то дизейблим инпут
 
     const togglePopup = () => {
         popupVisible.value = !popupVisible.value;
     };
 
     async function send() {
-        togglePopup();
+        if (!userData || !userData.id) {
+            return;
+        }
 
-        // const response = await postJson<{success: boolean}>('/platform/load', {id: }); todo
-        //
-        // if (response.success) {
-        //     this.suggests = response.data!.suggests;
-        // }
+        const response = await postJson<{success: boolean, knowledge: number, reputation: number}>('/api/platform/load', {id: id.value, userId: userData.id});
+
+        reputation.value = response.reputation;
+        knowledge.value = response.knowledge;
+
+        if (response.success) {
+            togglePopup();
+        }
     }
-// const id = ; todo из стора, а если есть, то дизейблим инпут
 </script>

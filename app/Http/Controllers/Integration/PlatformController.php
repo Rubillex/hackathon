@@ -22,8 +22,8 @@ class PlatformController
 
         return response()->json([
             'success'    => $success,
-            'knowledge'  => $result['knowledge'] ?? 0,
-            'reputation' => $result['reputation'] ?? 0,
+            'knowledge'  => $result->knowledge ?? 0,
+            'reputation' => $result->reputation ?? 0,
         ]);
     }
 
