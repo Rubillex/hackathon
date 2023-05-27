@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "target": "es2018",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "lib": [
+            "esnext",
+            "esnext.asynciterable",
+            "dom"
+        ],
+        "declaration": false,
+        "noImplicitAny": false,
+        "esModuleInterop": true,
+        "allowJs": true,
+        "sourceMap": true,
+        "strict": true,
+        "experimentalDecorators": true,
+        "baseUrl": "resources/js",
+        "paths": {
+            "~/*": [
+                "./*"
+            ],
+            "@/*": [
+                "./*"
+            ]
+        },
+        "types": []
+    },
+    "exclude": [
+        "node_modules",
+        "examples"
+    ]
+}

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+    <div class="vue-test"></div>
+
     <div class="main-container">
         <div class="content-container main-container__wrapper">
             <div class="pet-block">
