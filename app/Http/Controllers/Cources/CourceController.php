@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cources;
 
 use App\Http\Requests\Cources\CourceRequest;
 use App\Models\Cource;
+use App\Models\CourceViewed;
 
 class CourceController
 {
@@ -16,12 +17,18 @@ class CourceController
 
     public function show(string $slug)
     {
+        /** @var Cource $cource */
         $cource = Cource::where('slug', '=', $slug)
             ->where('is_active', '=', 1)->with('lessons')->first();
 
         if (!$cource) {
             abort(404);
         }
+
+        CourceViewed::updateOrCreate([
+            'cource_id' => $cource->id,
+            'user_id' => auth()->id()
+        ]);
 
         return $cource;
     }
