@@ -23,8 +23,8 @@ Route::prefix('/platform')->name('platform.')->group(function () {
     Route::get('', [Con\Integration\PlatformController::class, 'loadUserPlatformInfo'])->name('loadUserPlatformInfo');
 });
 
-Route::prefix('/profile')->name('profile.')->group(function () {
-    Route::get('', [Con\Profile\ProfileController::class, 'index'])->name('index');
+Route::prefix('/lk/')->name('lk.')->group(function () {
+    Route::get('user', [Con\LK\LKController::class, 'index'])->name('index');
 });
 
-Route::post('/froggy-chat', [ChatGPTController::class, 'sendMessage']);
+Route::post('/froggy-chat', [Con\API\ChatGPTController::class, 'sendMessage']);

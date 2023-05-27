@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Profile;
+namespace App\Http\Controllers\LK;
 
-class ProfileController
+class LKController
 {
     public function __construct(
     )
