@@ -1,0 +1,40 @@
+@import "../../_var";
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 30px;
+    box-shadow: 0 7px 0 #292D32;
+    border-radius: 9px;
+    background-color: @cWhite;
+
+    &__text {
+        font: @font 16px/16px 700;
+    }
+
+    &--green {
+        background-color: @cLightGreen;
+    }
+
+    &--red {
+        background-color: @cRed;
+    }
+
+    &--blue {
+        background-color: @cBlue;
+    }
+
+    &--border-black {
+        border: 2px solid @cBlack;
+    }
+
+    &--border-white {
+        border: 2px solid @cWhite;
+    }
+
+    &--full-width {
+        width: 100%;
+    }
+}
