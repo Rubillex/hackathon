@@ -1,0 +1,33 @@
+@import "../../_var";
+
+.menu-block {
+    height: 100%;
+    background-color: @cViolet;
+    position: relative;
+    padding: 52px 59px 76px 62px;
+
+    &:before {
+        .pseudo();
+        .size(3000%, 100%);
+        top: 0;
+        right: -3000%;
+        background-color: @cViolet;
+    };
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title {
+        color: @cWhite;
+        font: 900 24px/24px @fontRaleway;
+        margin-bottom: 40px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+    }
+}
