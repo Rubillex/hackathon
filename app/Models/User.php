@@ -78,23 +78,23 @@ class User extends OrchidUser
         'created_at',
     ];
 
-    public function lastSeenCources(): BelongsToMany
+    public function lastSeenCourses(): BelongsToMany
     {
-        return $this->belongsToMany(Cource::class, 'cource_vieweds', 'user_id', 'cource_id');
+        return $this->belongsToMany(Course::class, 'course_vieweds', 'user_id', 'course_id');
     }
 
-    public function completedCources(): BelongsToMany
+    public function completedCourses(): BelongsToMany
     {
-        return $this->belongsToMany(Cource::class, 'cource_completeds', 'user_id', 'cource_id');
+        return $this->belongsToMany(Course::class, 'course_completeds', 'user_id', 'course_id');
     }
 
-    public function cources(): BelongsToMany
+    public function courses(): BelongsToMany
     {
-        return $this->belongsToMany(Cource::class, 'cource_users', 'user_id', 'cource_id');
+        return $this->belongsToMany(Course::class, 'course_users', 'user_id', 'course_id');
     }
 
-    public function myCources(): BelongsToMany
+    public function myCourses(): BelongsToMany
     {
-        return $this->cources()->where('creator_id', '=', $this->id);
+        return $this->courses()->where('creator_id', '=', $this->id);
     }
 }

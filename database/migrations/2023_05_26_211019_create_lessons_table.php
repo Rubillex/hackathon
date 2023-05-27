@@ -20,8 +20,8 @@ class CreateLessonsTable extends Migration
             $table->longText('content');
             $table->boolean('is_active')->default(0);
 
-            $table->foreignId('cource_id')
-                ->constrained('cources');
+            $table->foreignId('course_id')
+                ->constrained('courses');
 
 
             $table->timestamps();

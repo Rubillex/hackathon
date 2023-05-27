@@ -13,11 +13,11 @@ class CreateCourceUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('cource_users', function (Blueprint $table) {
+        Schema::create('course_users', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('cource_id')
-                ->constrained('cources');
+            $table->foreignId('course_id')
+                ->constrained('courses');
 
             $table->foreignId('user_id')
                 ->constrained('users');

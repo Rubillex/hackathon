@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Cources;
+namespace App\Http\Requests\Courses;
 
 use App\Enum\QuestionTypeEnum;
 use Illuminate\Foundation\Http\FormRequest;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Cources;
 
-use App\Http\Requests\Cources\QuestionRequest;
+use App\Http\Requests\Courses\QuestionRequest;
 use App\Models\Question;
 
 class QuestionController

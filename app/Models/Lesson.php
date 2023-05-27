@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
+ * @property int $course_id
  * @property string $title
  * @property string $slug
  * @property string $content
@@ -23,7 +24,7 @@ class Lesson extends Model
         'title',
         'slug',
         'content',
-        'cource_id',
+        'course_id',
         'is_active',
     ];
 
@@ -36,9 +37,9 @@ class Lesson extends Model
         ];
     }
 
-    public function cource(): BelongsTo
+    public function course(): BelongsTo
     {
-        return $this->belongsTo(Cource::class, 'cource_id', 'id');
+        return $this->belongsTo(Course::class, 'course_id', 'id');
     }
 
     public function questions(): HasMany

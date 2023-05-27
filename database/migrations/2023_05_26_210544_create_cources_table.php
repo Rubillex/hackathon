@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCourcesTable extends Migration
+class CreateCoursesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCourcesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cources', function (Blueprint $table) {
+        Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
@@ -36,6 +36,6 @@ class CreateCourcesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cources');
+        Schema::dropIfExists('courses');
     }
 }

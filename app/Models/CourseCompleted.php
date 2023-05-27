@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class CourceCompleted extends Model
+class CourseCompleted extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'cource_id',
+        'course_id',
         'user_id',
     ];
 
@@ -20,8 +20,8 @@ class CourceCompleted extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function cource(): BelongsTo
+    public function course(): BelongsTo
     {
-        return $this->belongsTo(Cource::class, 'cource_id', 'id');
+        return $this->belongsTo(Course::class, 'course_id', 'id');
     }
 }

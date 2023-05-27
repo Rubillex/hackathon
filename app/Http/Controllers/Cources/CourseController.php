@@ -2,31 +2,31 @@
 
 namespace App\Http\Controllers\Cources;
 
-use App\Http\Requests\Cources\CourceRequest;
-use App\Models\Cource;
-use App\Models\CourceViewed;
+use App\Http\Requests\Courses\CourceRequest;
+use App\Models\Course;
+use App\Models\CourseViewed;
 
-class CourceController
+class CourseController
 {
     public function index()
     {
-        $cources = Cource::where('is_active', '=', 1)->get();
+        $cources = Course::where('is_active', '=', 1)->get();
 
         return $cources;
     }
 
     public function show(string $slug)
     {
-        /** @var Cource $cource */
-        $cource = Cource::where('slug', '=', $slug)
+        /** @var Course $cource */
+        $cource = Course::where('slug', '=', $slug)
             ->where('is_active', '=', 1)->with('lessons')->first();
 
         if (!$cource) {
             abort(404);
         }
 
-        CourceViewed::updateOrCreate([
-            'cource_id' => $cource->id,
+        CourseViewed::updateOrCreate([
+            'course_id' => $cource->id,
             'user_id' => auth()->id()
         ]);
 
@@ -35,19 +35,19 @@ class CourceController
 
     public function store(CourceRequest $request)
     {
-        $cource = Cource::create($request->validated());
+        $cource = Course::create($request->validated());
 
         return $cource;
     }
 
-    public function update(CourceRequest $request, Cource $cource)
+    public function update(CourceRequest $request, Course $cource)
     {
         $cource->update($request->validated());
 
         return $cource;
     }
 
-    public function delete(Cource $cource)
+    public function delete(Course $cource)
     {
         $cource->delete();
 

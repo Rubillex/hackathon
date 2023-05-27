@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Cources;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Cources\LessonRequest;
+use App\Http\Requests\Courses\LessonRequest;
 use App\Models\Lesson;
 
 class LessonController extends Controller

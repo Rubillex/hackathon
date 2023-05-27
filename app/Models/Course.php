@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $creator_id
  * @property boolean $is_active
  */
-class Cource extends Model
+class Course extends Model
 {
     use HasFactory, Sluggable;
 
@@ -40,6 +40,6 @@ class Cource extends Model
 
     public function lessons(): HasMany
     {
-        return $this->hasMany(Lesson::class, 'cource_id', 'id');
+        return $this->hasMany(Lesson::class, 'course_id', 'id');
     }
 }

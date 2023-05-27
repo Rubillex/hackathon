@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Cources;
 
-use App\Http\Requests\Cources\AnswerRequest;
+use App\Http\Requests\Courses\AnswerRequest;
 use App\Models\Answer;
 
 class AnswerController
