@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Laravel\Sanctum\HasApiTokens;
 use Orchid\Platform\Models\User as OrchidUser;
 
@@ -12,6 +13,7 @@ use Orchid\Platform\Models\User as OrchidUser;
  * @property string $email
  * @property string $password
  * @property string $permissions
+ * @property object $pet // todo нормальная дока
  */
 class User extends OrchidUser
 {
@@ -88,6 +90,12 @@ class User extends OrchidUser
     {
         return $this->belongsToMany(Course::class, 'course_users', 'user_id', 'course_id');
     }
+
+    public function pet(): HasOne
+    {
+        return $this->hasOne(Pet::class, 'user_id');
+    }
+
 
     public function myCourses(): BelongsToMany
     {

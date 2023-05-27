@@ -59,9 +59,9 @@
                         <a href="/courses" class="menu__item btn btn--red btn--border-white">
                             <div class="menu__item-text btn__text">Открытые курсы</div>
                         </a>
-                        <div class="menu__item btn btn--green btn--border-white">
-                            <div class="menu__item-text btn__text">Мои курсы</div>
-                        </div>
+                        <a href="/lk" class="menu__item btn btn--green btn--border-white">
+                            <div class="menu__item-text btn__text">Профиль</div>
+                        </a>
                     </div>
                 </div>
             </div>

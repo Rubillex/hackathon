@@ -3,25 +3,19 @@
 namespace App\Http\Controllers\Integration;
 
 use App\Models\Api\Stepik;
+use Illuminate\Http\Request;
 
 class PlatformController
 {
-    public function __construct()
-    {
-//        todo получить юзера
-    }
 
-    public function loadUserPlatformInfo(Stepik $stepik)
+    public function loadUserPlatformInfo(Request $request, Stepik $stepik)
     {
-        $user = [
-            'id'    => 76221823,
-            'email' => 'kirillmk_kmk@mail.ru',
-        ];
+        $id = $request->get('id');
 
         $success = true;
 
         try {
-            $result = $stepik->getUserById($user['id']);
+            $result = $stepik->getUserById($id);
         } catch (\Exception $e) {
             $success = false;
         }

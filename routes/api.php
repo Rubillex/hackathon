@@ -25,6 +25,8 @@ Route::prefix('/auth')->name('auth.')->group(function () {
 
 Route::prefix('/platform')->name('platform.')->group(function () {
     Route::get('', [Con\Integration\PlatformController::class, 'loadUserPlatformInfo'])->name('loadUserPlatformInfo');
+Route::prefix('/platform/')->name('platform.')->group(function () {
+    Route::get('load', [Con\Integration\PlatformController::class, 'loadUserPlatformInfo'])->name('loadUserPlatformInfo');
 });
 
 Route::prefix('/lk/')->middleware(['auth:sanctum'])->name('lk.')->group(function () {
@@ -32,3 +34,8 @@ Route::prefix('/lk/')->middleware(['auth:sanctum'])->name('lk.')->group(function
 });
 
 Route::post('/froggy-chat', [Con\API\ChatGPTController::class, 'sendMessage']);
+
+Route::prefix('/pet')->name('pet.')->group(function () {
+    // todo мидлвара на проверку авторизации, того что пет принадлежит юзеру
+    Route::get('/get-pet-by-user/{user}', [Con\Api\PetController::class, 'getUserPet'])->name('getUserPet');
+});

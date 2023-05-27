@@ -1,0 +1,23 @@
+@import "../../_var";
+
+.input-label {
+    position: relative;
+    display: block;
+
+    &__text {
+        .transit(~'font-size, top, background');
+        display: inline-block;
+        border-radius: 10px;
+        padding: 0 0 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        box-sizing: border-box;
+        pointer-events: none;
+        z-index: 4;
+
+        span {
+            position: relative;
+        }
+    }
+}
