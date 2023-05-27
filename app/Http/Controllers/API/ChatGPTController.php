@@ -16,7 +16,13 @@ class ChatGPTController
 
             $answers = $chatGPT->ask('представь, что ты тамагочи-лягушка и ты просишь пользователя пройти обучающие курсы, чтобы покормить тебя. Придумай сообщение для мотивации. 2-3 коротких предложения');
 
-            return response()->json([$answers]);
+            $answerResult = '';
+
+            foreach ($answers as $answer) {
+                $answerResult .= $answer['answer'];
+            }
+
+            return response()->json(['message' => $answerResult]);
         } catch (Exception $exception) {
             return response()->json(['Я жрать блин хочу че ты меня не кормишь? Покорми старую, сынок... Я скоро совсем зачахну']);
         }

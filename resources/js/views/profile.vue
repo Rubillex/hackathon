@@ -44,10 +44,6 @@
                                     :message="message"
                                 />
                             </div>
-                            <a href="/courses" class="pet-block__btn btn btn--red btn--border-black">
-                                <div class="menu__item-text btn__text">Накормить жабу</div>
-                            </a>
-                            <div class="pet-block__info-title">Мои последние курсы:</div>
                         </div>
                     </div>
                 </div>
@@ -56,9 +52,6 @@
                 <div class="menu-block__wrapper">
                     <div class="menu-block__title">Меню</div>
                     <div class="menu-block__list menu">
-                        <a href="/courses" class="menu__item btn btn--red btn--border-white">
-                            <div class="menu__item-text btn__text">Открытые курсы</div>
-                        </a>
                         <a href="/lk" class="menu__item btn btn--green btn--border-white">
                             <div class="menu__item-text btn__text">Профиль</div>
                         </a>
@@ -74,6 +67,7 @@ import ProgressBar from "../components/ProgressBar.vue";
 import {onMounted, ref} from "vue";
 import user from "../store/modules/user";
 import Message from "../components/Message.vue";
+import {getJson} from "../helper/ajax";
 
 const lifePercent = ref(100);
 
@@ -83,20 +77,26 @@ const userData = store.getUserData;
 
 const messages = ref([
     {
-        content: 'Я жрать блин хочу',
-        time: '11.12.2023',
+        content: 'Печатает...',
+        time: '',
         incoming: true,
-    },
-    {
-        content: 'прасти :с',
-        time: '11.12.2023',
-        incoming: false,
     },
 ]);
 
 
-onMounted(() => {
-    // todo тайпинг + вывод сообщения от chatgpt. Одного, без чата
+onMounted(async () => {
+    const response = await getJson<{
+        message: string,
+    }>('/api/froggy-chat');
+
+    console.log(response)
+    messages.value = [
+        {
+            content: response.message,
+            time: '28.05.2023',
+            incoming: true,
+        }
+    ];
 });
 
 const decrementLife = () => {

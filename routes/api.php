@@ -32,7 +32,7 @@ Route::prefix('/lk/')->middleware(['auth:sanctum'])->name('lk.')->group(function
     Route::get('user', [Con\LK\LKController::class, 'index'])->name('index');
 });
 
-Route::post('/froggy-chat', [Con\API\ChatGPTController::class, 'sendMessage']);
+Route::get('/froggy-chat', [Con\API\ChatGPTController::class, 'sendMessage']);
 
 Route::prefix('/pet')->name('pet.')->group(function () {
     // todo мидлвара на проверку авторизации, того что пет принадлежит юзеру
