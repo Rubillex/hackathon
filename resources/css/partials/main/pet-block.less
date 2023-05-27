@@ -1,0 +1,23 @@
+@import "../../_var";
+
+.pet-block {
+    height: 100%;
+    background-color: @cToxicGreen;
+    position: relative;
+
+    &:before {
+        .pseudo();
+        .size(300%, 100%);
+        left: -300%;
+        background-color: @cToxicGreen;
+    }
+
+    &__wrapper {
+        padding: 42px 87px 72px 66px;
+    }
+
+    &__title {
+        font: 900 32px/32px @fontRaleway;
+        margin-bottom: 40px;
+    }
+}
