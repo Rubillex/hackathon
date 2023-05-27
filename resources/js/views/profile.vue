@@ -71,7 +71,7 @@
 
 <script setup lang="ts">
 import ProgressBar from "../components/ProgressBar.vue";
-import { ref } from "vue";
+import {onMounted, ref} from "vue";
 import user from "../store/modules/user";
 import Message from "../components/Message.vue";
 
@@ -93,6 +93,11 @@ const messages = ref([
         incoming: false,
     },
 ]);
+
+
+onMounted(() => {
+    // todo тайпинг + вывод сообщения от chatgpt. Одного, без чата
+});
 
 const decrementLife = () => {
     if (lifePercent.value <= 0) {

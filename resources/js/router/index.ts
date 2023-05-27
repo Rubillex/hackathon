@@ -25,6 +25,18 @@ const router = createRouter({
             component: () => import('../views/lk.vue'),
             // beforeEnter: authMiddleware
         },
+        {
+            path: ROUTES.register,
+            name: 'register',
+            component: () => import('../views/register.vue'),
+            // beforeEnter: authMiddleware
+        },
+        {
+            path: ROUTES.signIn,
+            name: 'sign-in',
+            component: () => import('../views/signIn.vue'),
+            // beforeEnter: authMiddleware
+        },
     ]
 });
 
