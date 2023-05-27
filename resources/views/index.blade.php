@@ -36,9 +36,9 @@
                 <div class="menu-block__wrapper">
                     <div class="menu-block__title">Меню</div>
                     <div class="menu-block__list menu">
-                        <div class="menu__item btn btn--red btn--border-white">
+                        <a href="{{ route('courses.index') }}" class="menu__item btn btn--red btn--border-white">
                             <div class="menu__item-text btn__text">Открытые курсы</div>
-                        </div>
+                        </a>
                         <div class="menu__item btn btn--green btn--border-white">
                             <div class="menu__item-text btn__text">Мои курсы</div>
                         </div>

@@ -1,5 +1,5 @@
 <header class="header">
     <div class="content-container header__wrapper">
-        <div class="header__logo">ЛОГО.</div>
+        <a href="{{ route('index') }}" class="header__logo link">ЛОГО.</a>
     </div>
 </header>

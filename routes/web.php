@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
 Route::group([/*'middleware' => 'auth'*/], function () {
     require __DIR__ . '/web/CRUD/courses.php';
