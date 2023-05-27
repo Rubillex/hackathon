@@ -16,7 +16,7 @@ class CreatePlatformsTable extends Migration
         Schema::create('platforms', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('user_id')->constrained('platforms');
+            $table->foreignId('user_id')->constrained('users');
             $table->unsignedBigInteger('external_id');
             $table->unsignedInteger('knowledge')->default(0);
             $table->unsignedInteger('reputation')->default(0);
