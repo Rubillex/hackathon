@@ -24,7 +24,7 @@ class ChatGPTController
 
             return response()->json(['message' => $answerResult]);
         } catch (Exception $exception) {
-            return response()->json(['Я жрать блин хочу че ты меня не кормишь? Покорми старую, сынок... Я скоро совсем зачахну']);
+            return response()->json(['message' => 'Я жрать блин хочу че ты меня не кормишь? Покорми старую, сынок... Я скоро совсем зачахну' ]);
         }
     }
 }

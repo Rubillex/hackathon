@@ -6,10 +6,17 @@
             <div class="lk__block">
                 <label class="input-label">
                     <span class="input-label__text">
-                        <span>Введите id пользователя на stepik:</span>
+                        <span>Email:</span>
                     </span>
 
-                    <input class="input">
+                    <input class="input" name="email">
+                </label>
+                <label class="input-label">
+                    <span class="input-label__text">
+                        <span>Пароль:</span>
+                    </span>
+
+                    <input class="input" name="password">
                 </label>
             </div>
             <button class="btn btn--green">
