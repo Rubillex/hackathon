@@ -11,15 +11,23 @@ const path = require('path');
  | file for the application as well as bundling up all the JS files.
  |
  */
-console.log(path.resolve(__dirname) + '/resources/js');
-
 mix.js('resources/js/app.js', 'public/js')
-    .ts('resources/js/app.ts', 'public/ts')
-    .vue()
+    .ts('resources/js/app.ts', 'public/js')
+    .vue({ version: 3 })
     .less('resources/css/style.less', 'public/css')
     .webpackConfig({
+        module: {
+            rules: [
+                {
+                    test: /\.tsx?$/,
+                    loader: "ts-loader",
+                    options: { appendTsSuffixTo: [/\.vue$/] },
+                    exclude: /node_modules/,
+                }
+            ]
+        },
         resolve: {
-            extensions: ['.ts', '.js'],
+            extensions: ['*', '.js', '.jsx', '.vue', '.ts', '.tsx'],
             alias: {
                 '~': path.resolve(__dirname) + 'resources/js',
                 '@': path.resolve(__dirname) + 'resources/js',

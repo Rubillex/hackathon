@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
-        "target": "es2018",
+        "target": "esnext",
         "module": "esnext",
+        "jsx": "preserve",
         "moduleResolution": "node",
         "lib": [
             "esnext",
@@ -14,6 +15,7 @@
         "allowJs": true,
         "sourceMap": true,
         "strict": true,
+        "outDir": "dist",
         "experimentalDecorators": true,
         "baseUrl": "resources/js",
         "paths": {
@@ -26,8 +28,8 @@
         },
         "types": []
     },
+    "include": ["resources/**/*.ts", "resources/**/*.vue", "resources/*.vue", "resources/*.ts", "/*.vue",],
     "exclude": [
         "node_modules",
-        "examples"
     ]
 }

@@ -1,5 +1,4 @@
 import initVue from "~/init-vue";
-import test from '../vue/test.vue';
 
 /**
  * Базовый контроллер страницы
@@ -19,7 +18,7 @@ abstract class BasePage {
     }
 
     init(): void {
-        initVue(this.el?.querySelector('.vue-test'), test); // todo дописать попапы
+
     }
 
     initPopups() {
