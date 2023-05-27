@@ -21,6 +21,15 @@
     };
 
     &__img {
+        .transit(transform);
         margin-bottom: 25px;
+    }
+
+    &--dead {
+        .pet-card {
+            &__img {
+                transform: rotate(180deg);
+            }
+        }
     }
 }

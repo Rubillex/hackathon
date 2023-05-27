@@ -6,8 +6,8 @@
                     <div class="pet-block__title" v-html="`Приветствую, ${userData.name}!`" />
                     <div class="pet-block__row">
                         <div class="pet-block__pet-card">
-                            <div class="pet-card">
-                                <div class="pet-card__img">
+                            <div class="pet-card" :class="{'pet-card--dead': lifePercent === 0}">
+                                <div class="pet-card__img" :style="'filter: grayscale(' + (100 - lifePercent) + '%);'">
                                     <img src="images/main/ava.png" alt="">
                                 </div>
                                 <div class="pet-card__name">Жаба Клава</div>
