@@ -1,0 +1,26 @@
+@import "../../_var";
+
+.progress-bar {
+    height: 19px;
+    width: 100%;
+    border: 2px solid @cLightGray;
+    border-radius: 11px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+
+    &__status {
+        height: 100%;
+        //outline: 2px solid @cLightGray;
+
+        &--red {
+            background-color: @cRed;
+        }
+
+        &--green {
+            background-color: @cLightGreen;
+        }
+    }
+}

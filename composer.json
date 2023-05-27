@@ -8,6 +8,7 @@
         "php": "^8.0",
         "cviebrock/eloquent-sluggable": "^8.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "haozi-team/chatgpt-php": "^2.0",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.15",
         "laravel/tinker": "^2.5",

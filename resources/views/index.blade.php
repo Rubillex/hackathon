@@ -15,11 +15,11 @@
                                 <div class="pet-card__info">
                                     <div class="pet-stat">
                                         <img class="pet-stat__svg" src="{{ P_IMAGES . '/svg/life.svg' }}" alt="">
-                                        <div class="pet-stat__value">3/3</div>
+                                        <x-progress-bar :max="100" :current="24" :type="'red'" />
                                     </div>
                                     <div class="pet-stat">
                                         <img class="pet-stat__svg" src="{{ P_IMAGES . '/svg/exp.svg' }}" alt="">
-                                        <div class="pet-stat__value">404/500</div>
+                                        <x-progress-bar :percent="97" :type="'green'" />
                                     </div>
                                     <div class="pet-stat">
                                         <img class="pet-stat__svg" src="{{ P_IMAGES . '/svg/score.svg' }}" alt="">
