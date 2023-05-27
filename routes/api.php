@@ -19,8 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('/platform')->name('platform.')->group(function () {
-    Route::get('', [Con\Integration\PlatformController::class, 'loadUserPlatformInfo'])->name('loadUserPlatformInfo');
+Route::prefix('/platform/')->name('platform.')->group(function () {
+    Route::get('load', [Con\Integration\PlatformController::class, 'loadUserPlatformInfo'])->name('loadUserPlatformInfo');
 });
 
 Route::prefix('/lk/')->name('lk.')->group(function () {
