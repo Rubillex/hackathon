@@ -14,4 +14,18 @@ class RegisterRequest extends FormRequest
             'password' => ['required', 'string'],
         ];
     }
+
+    public function getName(): string
+    {
+        return $this->input('name');
+    }
+    public function getEmail(): string
+    {
+        return $this->input('email');
+    }
+
+    public function getPassword(): string
+    {
+        return $this->input('password');
+    }
 }

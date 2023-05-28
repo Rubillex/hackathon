@@ -55,6 +55,6 @@ class AuthController
             }
         }
 
-        return true;
+        return response()->json([]);
     }
 }

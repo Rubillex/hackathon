@@ -11,31 +11,29 @@ const router = createRouter({
             path: ROUTES.profile,
             name: 'profile',
             component: () => import('../views/profile.vue'),
-            // beforeEnter: authMiddleware
+            beforeEnter: authMiddleware
         },
         {
             path: ROUTES.courses,
             name: 'courses',
             component: () => import('../views/courses.vue'),
-            // beforeEnter: authMiddleware
+            beforeEnter: authMiddleware
         },
         {
             path: ROUTES.lk,
             name: 'lk',
             component: () => import('../views/lk.vue'),
-            // beforeEnter: authMiddleware
+            beforeEnter: authMiddleware
         },
         {
             path: ROUTES.register,
             name: 'register',
             component: () => import('../views/register.vue'),
-            // beforeEnter: authMiddleware
         },
         {
             path: ROUTES.signIn,
             name: 'sign-in',
             component: () => import('../views/signIn.vue'),
-            // beforeEnter: authMiddleware
         },
     ]
 });
@@ -45,13 +43,13 @@ router.beforeEach(async (to, from, next) => {
     if (firstLoad) {
         firstLoad = false;
 
-        const store = user();
-        const payload = {
-            email: 'kirillmk_kmk@mail.ru',
-            password: 'password'
-        };
-        await store.login(payload);
-        await store.getProfileData();
+        // const store = user();
+        // const payload = {
+        //     email: 'kirillmk_kmk@mail.ru',
+        //     password: 'password'
+        // };
+        // await store.login(payload);
+        // await store.getProfileData();
     }
 
     return next();

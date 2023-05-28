@@ -89,7 +89,6 @@ onMounted(async () => {
         message: string,
     }>('/api/froggy-chat');
 
-    console.log(response)
     messages.value = [
         {
             content: response.message,
