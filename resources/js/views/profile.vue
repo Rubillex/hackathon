@@ -136,7 +136,7 @@ const getAvatar = () => {
     if (lifePercent.value > 80) {
         return '/images/main/happy.png';
     }
-    if (lifePercent.value < 20) {
+    if (lifePercent.value <= 0) {
         return '/images/main/die.png';
     }
     return '/images/main/normal.png';
