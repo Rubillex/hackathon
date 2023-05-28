@@ -7,8 +7,8 @@
                     <div class="pet-block__row">
                         <div class="pet-block__pet-card">
                             <div class="pet-card" :class="{'pet-card--dead': lifePercent === 0}">
-                                <div class="pet-card__img" :style="'filter: grayscale(' + (100 - lifePercent) + '%);'">
-                                    <img src="images/main/ava.png" alt="">
+                                <div class="pet-card__img">
+                                    <img :src="getAvatar()" alt="avatar">
                                 </div>
                                 <div class="pet-card__name">Жаба Клава</div>
                                 <div class="pet-card__info">
@@ -83,7 +83,7 @@ if (userData && userData.knowledge) {
 
 const messages = ref([
     {
-        content: 'Печатает...',
+        content: 'Думает...',
         time: '',
         incoming: true,
     },
@@ -131,6 +131,16 @@ const incrementLife = () => {
 
     lifePercent.value = lifePercent.value + 5;
 };
+
+const getAvatar = () => {
+    if (lifePercent.value > 80) {
+        return '/images/main/happy.png';
+    }
+    if (lifePercent.value < 20) {
+        return '/images/main/die.png';
+    }
+    return '/images/main/normal.png';
+}
 </script>
 
 <style scoped lang="scss">
