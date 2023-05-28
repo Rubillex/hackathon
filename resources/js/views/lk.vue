@@ -74,6 +74,13 @@
         knowledge.value = response.knowledge;
         success.value = response.success;
 
+        if (response.success) {
+            store.updateData({
+                knowledge: knowledge.value,
+                stepikID: id.value
+            })
+        }
+
         togglePopup();
     }
 </script>

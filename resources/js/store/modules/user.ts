@@ -55,6 +55,15 @@ export default defineStore({
                     console.log(err);
                 })
         },
+        updateData(newData) {
+           Object.keys(newData).forEach((key) => {
+               if (this.userData === null) {
+                   return;
+               }
+
+               this.userData[key] = newData[key];
+           })
+        },
         logout() {
             axios.post('/api/auth/logout', null, {
                 headers: {
