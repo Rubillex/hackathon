@@ -83,7 +83,7 @@ if (userData && userData.knowledge) {
 
 const messages = ref([
     {
-        content: 'Думает...',
+        content: '*Думает*',
         time: '',
         incoming: true,
     },
