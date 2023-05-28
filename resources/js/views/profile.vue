@@ -6,8 +6,8 @@
                     <div class="pet-block__title" v-html="`Приветствую, ${userData.name}!`" />
                     <div class="pet-block__row">
                         <div class="pet-block__pet-card">
-                            <div class="pet-card">
-                                <div class="pet-card__img">
+                            <div class="pet-card" :class="{'pet-card--dead': lifePercent === 0}">
+                                <div class="pet-card__img" :style="'filter: grayscale(' + (100 - lifePercent) + '%);'">
                                     <img src="images/main/ava.png" alt="">
                                 </div>
                                 <div class="pet-card__name">Жаба Клава</div>
@@ -22,7 +22,7 @@
                                     </div>
                                     <div class="pet-stat">
                                         <img class="pet-stat__svg" src="images/svg/score.svg" alt="">
-                                        <div class="pet-stat__value">322</div>
+                                        <div class="pet-stat__value" v-text="knowledge" />
                                     </div>
                                 </div>
                             </div>
@@ -75,6 +75,12 @@ const store = user();
 
 const userData = store.getUserData;
 
+let knowledge = ref(0);
+
+if (userData && userData.knowledge) {
+    knowledge.value = userData.knowledge;
+}
+
 const messages = ref([
     {
         content: 'Печатает...',
@@ -86,12 +92,24 @@ const messages = ref([
 
 onMounted(async () => {
     const response = await getJson<{
-        message: string,
+        messageChat?: string,
     }>('/api/froggy-chat');
+
+    if (!response.messageChat) {
+        messages.value = [
+            {
+                content: 'Я жрать блин хочу че ты меня не кормишь? Покорми старую, сынок... Я скоро совсем зачахну',
+                time: '28.05.2023',
+                incoming: true,
+            }
+        ];
+
+        return;
+    }
 
     messages.value = [
         {
-            content: response.message,
+            content: response.messageChat,
             time: '28.05.2023',
             incoming: true,
         }
